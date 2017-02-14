@@ -1,6 +1,3 @@
-require 'mechanize'
-require 'pry'
-
 class Day
   def initialize(year, month, day)
     @date = Date.new(year, month, day)
@@ -56,5 +53,19 @@ class Day
       :calories_burned      => raw_data[4].to_f,
       :goal_calories_burned => raw_data[5].to_f
     }
+  end
+
+  def weight_data
+    if (Date.today - @date).to_i > 90
+      raise "Too far in the past for weight data"
+    end
+
+    diary = @web_crawler.get("#{@login_page}/reports/results/progress/1/90.json")
+
+    # This is an actual API endpoint and is in JSON, so we'll need to parse that out.
+    data = JSON.parse(diary.body)
+    _w = data['data'].detect {|d| d['date'] == @date.strftime('%-m/%-d') }
+
+    _w.nil? || _w.empty? ? nil : _w['total']
   end
 end

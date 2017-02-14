@@ -95,6 +95,16 @@ call `.exercise_totals` on that day. The return format will look something like:
 }
 ```
 
+### Accessing Weight Data
+
+To access weight information for a specified date, create a new `Day` instance and then 
+call `.weight_data` on that day. The return will simply be a float representing the user's
+weight on the given date or `nil` if there is no data for the date.
+
+Note that this method only works for up to 90 days in the past. The reason is that the
+API endpoint being used doesn't display the actual year or anything, so we want to limit it
+to something reasonable so that we aren't accidentally getting the wrong data.
+
 ## Contributing
 
 1. Fork it ( https://github.com/hgducharme/myfitnesspal_stats/fork )
