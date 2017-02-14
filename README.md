@@ -81,6 +81,20 @@ day.nutrition_totals
 }
 ```
 
+### Accessing Exercise Data
+
+To access exercise information for a specified date, create a new `Day` instance and then 
+call `.exercise_totals` on that day. The return format will look something like:
+
+```ruby
+{
+           :minutes_today => 60.0,
+      :goal_minutes_today => 45.0,
+         :calories_burned => 278.0,
+    :goal_calories_burned => 0.0
+}
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/hgducharme/myfitnesspal_stats/fork )
