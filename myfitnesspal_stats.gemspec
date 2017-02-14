@@ -6,8 +6,8 @@ require 'myfitnesspal_stats/version'
 Gem::Specification.new do |spec|
   spec.name          = "myfitnesspal_stats"
   spec.version       = MyfitnesspalStats::VERSION
-  spec.authors       = ["Hunter Ducharme"]
-  spec.email         = ["hgducharme@gmail.com"]
+  spec.authors       = ["Hunter Ducharme", "Linell Bonnette"]
+  spec.email         = ["hgducharme@gmail.com", "tlbonnette@gmail.com"]
   spec.summary       = %q{Programatically access your daily nutrition from myfitnesspal.}
   spec.description   = %q{A module that replace Myfitnesspal's API. Get access to all of your stats & attributes for nutrition and weight progression.}
   spec.homepage      = "https://github.com/hgducharme/myfitnesspal_stats"
@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "mechanize", "~> 2.7"
+  spec.add_runtime_dependency "pry"
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
