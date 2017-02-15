@@ -1,6 +1,6 @@
 class Day
-  def initialize(year, month, day)
-    @date = Date.new(year, month, day)
+  def initialize(date)
+    @date = date.is_a?(String) ? Date.parse(date) : date
 
     @login_page = 'http://www.myfitnesspal.com'
 

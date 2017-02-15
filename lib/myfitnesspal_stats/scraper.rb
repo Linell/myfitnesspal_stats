@@ -17,7 +17,7 @@ class Scraper
     end
   end
 
-  def get_date(year = @date.year, month = @date.month, day = @date.day)
-    day = Day.new(year, month, day)
+  def get_date(date=@date)
+    day = Day.new(date)
   end
 end

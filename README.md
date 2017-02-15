@@ -31,16 +31,19 @@ include 'myfitnesspal_stats'
 scraper = Scraper.new('username', 'password')
 ```
 
+The `scraper` instance is initialized with the current date. Everything below where we're
+doing the `get_date` method can be called with no arguments and will default to the current
+date.
+
 ### Accessing Nutritional Information 
 
 To access nutritional information for a specified date, create a new `Day` instance and then call the `.nutrition_totals` on that day:
 
 ```ruby
-# The year, month, and day should all be numbers. Although a string will still work
-scraper.get_date(year, month, day)
+scraper.get_date(Date.today)
 
-# Numbers do not have to be padded with zeros, it can be 01 or just 1.
-day = scraper.get_date(2017, 01, 15)
+# The date can also be a string parsable by Date.parse, ie "2017-02-14"
+day = scraper.get_date("2017-02-14")
 # ==> #<Day:<object id>
 
 # Note: The nutrients that are returned depend on which nutrients you specified to track in your Myfitnesspal settings.
