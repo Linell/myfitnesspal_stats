@@ -64,7 +64,7 @@ class Day
 
     # This is an actual API endpoint and is in JSON, so we'll need to parse that out.
     data = JSON.parse(diary.body)
-    _w = data['data'].detect {|d| d['date'] == @date.strftime('%-m/%-d') }
+    _w = data['data'].detect {|d| d['date'] == @date.strftime('%-m/%d') }
 
     _w.nil? || _w.empty? ? nil : _w['total']
   end
