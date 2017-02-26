@@ -23,9 +23,9 @@ class Day
 
     nutrients.each_with_index.map do |nutrient, index|
       nutrient_totals[nutrient] = {
-        :todays_total => totals_table.search('td')[index + 1].text.sub(/\D/, '').to_f,
-        :daily_goal   => totals_table.search('td')[index+9].text.sub(/\D/, '').to_f,
-        :remaining    => totals_table.search('td')[index+17].text.sub(/\D/, '').to_f
+        :todays_total => (totals_table.search('td')[index + 1].text.sub(/\D/, '').to_f rescue nil),
+        :daily_goal   => (totals_table.search('td')[index+9].text&.sub(/\D/, '').to_f rescue nil ),
+        :remaining    => (totals_table.search('td')[index+17].text.sub(/\D/, '').to_f rescue nil)
       }
     end
 
