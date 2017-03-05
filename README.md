@@ -27,13 +27,21 @@ Once installation of this gem is complete, initialize a new web scraper:
 ```ruby
 include 'myfitnesspal_stats'
 
-# Insert your username and password for Myfitnesspal
+# Insert your username and password for MyFitnessPal
 scraper = Scraper.new('username', 'password')
 ```
 
 The `scraper` instance is initialized with the current date. Everything below where we're
 doing the `get_date` method can be called with no arguments and will default to the current
 date.
+
+
+Note that the user is authenticated immediately, so if there is a problem it'll crop up
+as soon as you initialize the `Scraper` object. You'll get something like:
+
+```
+RuntimeError: Invalid Login: Incorrect username or password.  Please try again.
+```
 
 ### Accessing Nutritional Information 
 
